@@ -7,7 +7,7 @@ class Site:
         self.user_info = {}
 
     def show_homepage(self):
-        print("Bem-vindo à Página Inicial!")
+        print("Executando Página Inicial")
         # Está será a página principal do site da Salesforce, é nela que o úsuario encontrara informações básicas sobre a impresa e o site, e podera ser redirecionado para as demais páginas do portal.
         self.current_page = "Página Inicial"
 
@@ -59,6 +59,7 @@ class Site:
                 print("\nCredenciais incorretas")
 
     def logout(self):
+        print("Executando Logout")
         if self.logged_in:
             self.logged_in = False
             print("\nVocê saiu da conta.")
@@ -66,6 +67,7 @@ class Site:
             print("\nVocê não está logado.")
 
     def trocar_conta(self):
+        print("Executando Troca de Contas")
         self.logout()
         self.login()
 
@@ -129,7 +131,7 @@ class Site:
             while True:
                 try:
                     print("\nEscolha uma opção:")
-                    print("1. Página Inicia")
+                    print("1. Página Inicial")
                     print("2. Contatos")
                     print("3. FAQs")
                     print("4. Produtos")
@@ -163,11 +165,12 @@ class Site:
                             print("Saindo do site. Adeus!")
                             break
                         case _:
-                            print("Opção inválida. Tente novamente.")
+                            raise ValueError
 
                     print(f"Você está na página: {self.current_page}")
+
                 except ValueError:
-                    print('ERRO! Você deve informar uma das opções acima')
+                    print('ERRO! Opção inválida! \nVocê deve informar uma das opções acima.')
 
 site = Site()
 site.run()

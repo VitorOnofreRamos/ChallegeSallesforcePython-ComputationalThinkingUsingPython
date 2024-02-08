@@ -81,23 +81,22 @@ class Site:
             print("4. Switch Acount")
             print("0. Sair")
 
-            escolha = int(input("Opção: "))
-            print('\r')
+            escolha = input("Opção: ")
 
             match escolha:
-                case 1:
+                case "1":
                     self.cadastro()
-                case 2:
+                case "2":
                     self.login()
-                case 3:
+                case "3":
                     self.logout()
-                case 4:
+                case "4":
                     self.trocar_conta()
-                case 0:
+                case "0":
                     ("Saindo das opções de Login e Cadastro")
                     break
                 case _:
-                    print("Opção inválida. Tente novamente.")
+                    print("\n*(Você deve informar uma das opções acima)")
 
     def chat_bot(self):
         print("Executando Chat Bot:")
@@ -112,65 +111,59 @@ class Site:
             print("2. Navegação por texto")
             print("0. Sair")
 
-            escolha = int(input("Opção: "))
-            print('\r')
+            escolha = input("Opção: ")
 
             match escolha:
-                case 1:
+                case "1":
                     print("Mudando Contraste da Página")
-                case 2:
+                case "2":
                     print("Iniciando Navegação por texto")
-                case 0:
+                case "3":
                     ("Saindo do Menu de Acessibilidade")
                     break
                 case _:
-                    print("Opção inválida. Tente novamente.")
-
+                    print("\n*(Você deve informar uma das opções acima)")
 
     def run(self):
-            while True:
-                try:
-                    print("\nEscolha uma opção:")
-                    print("1. Página Inicial")
-                    print("2. Contatos")
-                    print("3. FAQs")
-                    print("4. Produtos")
-                    print("5. Sobre Nós")
-                    print("6. Opções de Login/Cadastro")
-                    print("7. Chat Bot")
-                    print("8. Menu de Acessibilidade")
-                    print("0. Sair")
+        while True:
+            print("\nEscolha uma opção:")
+            print("1. Página Inicial")
+            print("2. Contatos")
+            print("3. FAQs")
+            print("4. Produtos")
+            print("5. Sobre Nós")
+            print("6. Opções de Login/Cadastro")
+            print("7. Chat Bot")
+            print("8. Menu de Acessibilidade")
+            print("0. Sair")
 
-                    escolha = int(input("Opção: "))
-                    print('\r')
+            escolha = input("Opção: ")
 
-                    match escolha:
-                        case 1:
-                            self.show_homepage()
-                        case 2:
-                            self.show_contacts()
-                        case 3:
-                            self.show_faqs()
-                        case 4:
-                            self.show_products()
-                        case 5:
-                            self.show_about_us()
-                        case 6:
-                            self.opcoes_cadastrais()
-                        case 7:
-                            self.chat_bot()
-                        case 8:
-                            self.accessibility_menu()
-                        case 0:
-                            print("Saindo do site. Adeus!")
-                            break
-                        case _:
-                            raise ValueError
+            match escolha:
+                case "1":
+                    self.show_homepage()
+                case "2":
+                    self.show_contacts()
+                case "3":
+                    self.show_faqs()
+                case "4":
+                    self.show_products()
+                case "5":
+                    self.show_about_us()
+                case "6":
+                    self.opcoes_cadastrais()
+                case "7":
+                    self.chat_bot()
+                case "8":
+                    self.accessibility_menu()
+                case "0":
+                    print("Saindo do site. Adeus!")
+                    break
+                case _:
+                    print('\n*(Você deve informar uma das opções acima)')
 
-                    print(f"Você está na página: {self.current_page}")
+            print(f"\nVocê está na página: {self.current_page}")
 
-                except ValueError:
-                    print('ERRO! Opção inválida! \nVocê deve informar uma das opções acima.')
 
 site = Site()
 site.run()

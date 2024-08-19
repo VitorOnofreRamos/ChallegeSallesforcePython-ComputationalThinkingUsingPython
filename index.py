@@ -1,37 +1,67 @@
-# Vitor Onofre Ramos // RM553241
+"""Vitor Onofre Ramos // RM553241"""
+
 
 class Site:
+    """
+    Esse será a simulação do Site
+    """
+
     def __init__(self):
         self.logged_in = False
         self.current_page = "Página Inicial"
         self.user_info = {}
 
     def show_homepage(self):
+        """
+        Está será a página principal do site da Salesforce,
+        é nela que o úsuario encontrara informações básicas sobre
+        a impresa e o site, e podera ser redirecionado para as
+        demais páginas do portal.
+        :return:
+        """
         print("Executando Página Inicial")
-        # Está será a página principal do site da Salesforce, é nela que o úsuario encontrara informações básicas sobre a impresa e o site, e podera ser redirecionado para as demais páginas do portal.
         self.current_page = "Página Inicial"
 
     def show_contacts(self):
+        """
+        Uma página com informações de contato,
+        e principais redes socias.
+        """
         print("Executando Contatos:")
-        # Uma página com informações de contato, e principais redes socias.
         self.current_page = "Contatos"
 
     def show_faqs(self):
+        """
+        Essa página irá conter informações de contato e,
+        possivelmente, um formulário para os visitantes
+        preencherem e enviarem mensagens diretamente.
+        :return:
+        """
         print("Executando FAQs:")
-        # Essa página irá conter informações de contato e, possivelmente, um formulário para os visitantes preencherem e enviarem mensagens diretamente.
         self.current_page = "FAQs"
 
     def show_products(self):
+        """
+        Uma ou mais páginas que detalham os produtos,
+        serviços ou informações oferecidos pelo site.
+        """
         print("Executando Produtos:")
-        # Uma ou mais páginas que detalham os produtos, serviços ou informações oferecidos pelo site.
         self.current_page = "Produtos"
 
     def show_about_us(self):
+        """
+        A página que irá fornecer informações sobre a
+        empresa ou indivíduo que administra o site.
+        """
         print("Executando Sobre Nós:")
-        # A página que irá fornecer informações sobre a empresa ou indivíduo que administra o site.
         self.current_page = "Sobre Nós"
 
     def cadastro(self):
+        """
+        Salvar as informações do usuário
+        (neste exemplo, em um dicionário)
+        :return:
+        """
         print("Executando Cadastro:")
         if self.logged_in:
             print("\nVocê precisa sair da conta atual antes de criar outra.")
@@ -39,11 +69,15 @@ class Site:
             nomeusuario = input("Digite um nome de usuário: ")
             senha = input("Digite uma senha: ")
 
-            # Salvar as informações do usuário (neste exemplo, em um dicionário)
             self.user_info[nomeusuario] = senha
             print("\nCadastro bem-sucedido!")
 
     def login(self):
+        """
+        Verifique as credenciais (neste exemplo,
+        as credenciais são armazenadas em um dicionário)
+        :return:
+        """
         print("Executando Login:")
         if self.logged_in:
             print("\nVocê já está logado.")
@@ -51,7 +85,6 @@ class Site:
             nomeusuario = input("Digite seu nome de usuário: ")
             senha = input("Digite sua senha: ")
 
-            # Verifique as credenciais (neste exemplo, as credenciais são armazenadas em um dicionário)
             if nomeusuario in self.user_info and self.user_info[nomeusuario] == senha:
                 self.logged_in = True
                 print("\nLogin bem-sucedido!")
@@ -59,6 +92,10 @@ class Site:
                 print("\nCredenciais incorretas")
 
     def logout(self):
+        """
+        Executar logout
+        :return:
+        """
         print("Executando Logout")
         if self.logged_in:
             self.logged_in = False
@@ -67,11 +104,19 @@ class Site:
             print("\nVocê não está logado.")
 
     def trocar_conta(self):
+        """
+        Executar troca de contas
+        :return:
+        """
         print("Executando Troca de Contas")
         self.logout()
         self.login()
 
     def opcoes_cadastrais(self):
+        """
+        Executar opcoes de cadastro
+        :return:
+        """
         print("Executando opções de Login/Cadastro:")
         while True:
             print("\nEscolha uma da opções para Login ou Cadastro baixo:")
@@ -93,17 +138,27 @@ class Site:
                 case "4":
                     self.trocar_conta()
                 case "0":
-                    ("Saindo das opções de Login e Cadastro")
+                    print("Saindo das opções de Login e Cadastro")
                     break
                 case _:
                     print("\n*(Você deve informar uma das opções acima)")
 
-    def chat_bot(self):
+    @staticmethod
+    def chat_bot():
+        """
+        Executar chat_bot
+        :return:
+        """
         print("Executando Chat Bot:")
         mensagem = input("Digite o que você deseja: \r\n")
         print(mensagem)
 
-    def accessibility_menu(self):
+    @staticmethod
+    def accessibility_menu():
+        """
+        Executar menu de acessibilidade
+        :return:
+        """
         print("Executando Menu de Acessibilidade:")
         while True:
             print("\nEscolha uma opção:")
@@ -118,13 +173,17 @@ class Site:
                     print("Mudando Contraste da Página")
                 case "2":
                     print("Iniciando Navegação por texto")
-                case "3":
-                    ("Saindo do Menu de Acessibilidade")
+                case "0":
+                    print("Saindo do Menu de Acessibilidade")
                     break
                 case _:
                     print("\n*(Você deve informar uma das opções acima)")
 
     def run(self):
+        """
+        Rodar site
+        :return:
+        """
         while True:
             print("\nEscolha uma opção:")
             print("1. Página Inicial")
